@@ -5,7 +5,7 @@ import (
 	"encoding/xml"
 	"testing"
 
-	"wrap"
+	"github.com/twoojoo/wrap"
 
 	"github.com/stretchr/testify/assert"
 )

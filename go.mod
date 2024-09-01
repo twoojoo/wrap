@@ -1,4 +1,4 @@
-module wrap
+module github.com/twoojoo/wrap
 
 go 1.21.11
 
