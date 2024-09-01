@@ -18,6 +18,13 @@ func NewPtr[T any](ptr *T) Ptr[T] {
 	}
 }
 
+// NewPtr creates a new Ptr instance of type T with no value.
+func NewNilPtr[T any]() Ptr[T] {
+	return Ptr[T]{
+		x: nil,
+	}
+}
+
 // Unwrap returns the underlying pointer of type T.
 func (p *Ptr[T]) Unwrap() *T {
 	return p.x
