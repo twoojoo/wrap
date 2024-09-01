@@ -165,7 +165,7 @@ func TestMap_Values(t *testing.T) {
 	for _, tt := range tests {
 		m := NewMap(tt.initial)
 		values := m.Values()
-		assert.ElementsMatch(t, tt.expected, values, "Values should be %v", tt.expected)
+		assert.ElementsMatch(t, tt.expected, values.Unwrap(), "Values should be %v", tt.expected)
 	}
 }
 

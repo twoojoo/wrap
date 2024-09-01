@@ -38,25 +38,25 @@ func (m *Map[K, V]) Get(key K) (V, bool) {
 }
 
 // Set adds or updates the value for the specified key and returns the Map instance.
-func (m *Map[K, V]) Set(key K, value V) *Map[K, V] {
+func (m Map[K, V]) Set(key K, value V) Map[K, V] {
 	m.x[key] = value
 	return m
 }
 
 // Delete removes the key-value pair associated with the specified key and returns the Map instance.
-func (m *Map[K, V]) Delete(key K) *Map[K, V] {
+func (m Map[K, V]) Delete(key K) Map[K, V] {
 	delete(m.x, key)
 	return m
 }
 
 // Contains checks if the specified key exists in the map.
-func (m *Map[K, V]) Contains(key K) bool {
+func (m Map[K, V]) Contains(key K) bool {
 	_, exists := m.x[key]
 	return exists
 }
 
 // Keys returns a slice of all keys in the map.
-func (m *Map[K, V]) Keys() []K {
+func (m Map[K, V]) Keys() []K {
 	keys := make([]K, 0, len(m.x))
 	for key := range m.x {
 		keys = append(keys, key)
@@ -65,16 +65,16 @@ func (m *Map[K, V]) Keys() []K {
 }
 
 // Values returns a slice of all values in the map.
-func (m *Map[K, V]) Values() []V {
+func (m *Map[K, V]) Values() Slice[V] {
 	values := make([]V, 0, len(m.x))
 	for _, value := range m.x {
 		values = append(values, value)
 	}
-	return values
+	return NewSlice(values)
 }
 
 // Find returns the key of the first value that satisfies the provided comparison function, or zero value and false if not found.
-func (m *Map[K, V]) Find(compare func(V) bool) (K, bool) {
+func (m Map[K, V]) Find(compare func(V) bool) (K, bool) {
 	var zero K
 	for key, value := range m.x {
 		if compare(value) {
@@ -85,17 +85,17 @@ func (m *Map[K, V]) Find(compare func(V) bool) (K, bool) {
 }
 
 // Len returns the number of key-value pairs in the map.
-func (m *Map[K, V]) Len() int {
+func (m Map[K, V]) Len() int {
 	return len(m.x)
 }
 
 // IsEmpty returns true if the map is empty, otherwise false.
-func (m *Map[K, V]) IsEmpty() bool {
+func (m Map[K, V]) IsEmpty() bool {
 	return len(m.x) == 0
 }
 
 // Clear removes all key-value pairs from the map.
-func (m *Map[K, V]) Clear() {
+func (m Map[K, V]) Clear() {
 	for key := range m.x {
 		delete(m.x, key)
 	}
