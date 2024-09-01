@@ -1,6 +1,6 @@
 # wrap 
 
-Golang wrappers for pointers, slices and maps that grants secure access, useful methods and JSON / XML serialization support 
+Golang wrappers for pointers, slices, and maps that provide secure access, useful methods, and support for JSON/XML serialization.
 
 ## usage
 
@@ -13,7 +13,7 @@ import (
 )
 
 func main() {
-  
+
   // wrapped pointer
   ptr := wrap.NewPointer(10)
   ptr.SetValue(20)
