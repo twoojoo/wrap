@@ -9,6 +9,9 @@ type Map[K comparable, V any] struct {
 	x map[K]V
 }
 
+// Object is a shortcut for Map[string, any]
+type Object Map[string, any]
+
 // MapEntry represents a key-value pair in the map.
 type MapEntry[K comparable, V any] struct {
 	Key   K
